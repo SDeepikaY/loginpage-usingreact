@@ -1,16 +1,29 @@
-import React from 'react'
-import { useStategit  } from 'react'
+import React, { useState } from 'react';
 
-const Login = () => {         /*rafce*/
+
+
+export const Login = () => {                      /*rafce- to create initial basic component */
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');  
+  
+  const handleSubmit= (e) => {
+    e.preventDefault();
+    console.log(email);
+
+  }
+  
+           
   return (
-
-      <form>
+    <>
+      <form onSubmit={{handleSubmit}}>
         <label for='email' >email</label>
-        <input type='email' placeholder='enter your email' id='email' name='email'/>
+        <input value={email} type='email' placeholder='enter your email' id='email' name='email'/>
         <label for ='password'>password</label>
-        <input type='password' placeholder='enter your password' id='password' name='password'/>
-        <button>login</button>
+        <input value={password} type='password' placeholder='enter your password' id='password' name='password'/>
+        <button type='submit'>login</button>
       </form>
+      <button>Dont have have an account? Register here</button>
+    </>
       
   )
 }
